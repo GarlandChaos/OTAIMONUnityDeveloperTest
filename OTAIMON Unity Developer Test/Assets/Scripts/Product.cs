@@ -22,6 +22,38 @@ public class Product : MonoBehaviour
     [SerializeField]
     Currencies currency;
 
+    public string _productName
+    {
+        get
+        {
+            return productName;
+        }
+    }
+
+    public Sprite _img
+    {
+        get
+        {
+            return img;
+        }
+    }
+
+    public int _cost
+    {
+        get
+        {
+            return cost;
+        }
+    }
+
+    public Currencies _currency
+    {
+        get
+        {
+            return currency;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {

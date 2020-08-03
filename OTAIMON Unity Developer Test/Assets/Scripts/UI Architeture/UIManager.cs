@@ -27,6 +27,9 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     Camera UICamera;
 
+    [SerializeField]
+    GameEventEmitter UIManagerSetEmitter;
+
     public Camera _UICamera
     {
         get { return UICamera; }
@@ -42,6 +45,7 @@ public class UIManager : MonoBehaviour
         else
         {
             instance = GetComponent<UIManager>();
+            GameManager.instance._UIManagerProperty = this;
             DontDestroyOnLoad(this);
         }
 
@@ -72,6 +76,7 @@ public class UIManager : MonoBehaviour
                 }
             }
         }
+        UIManagerSetEmitter.EmitEvent();
     }
 
     // Start is called before the first frame update

@@ -13,6 +13,7 @@ public abstract class ALayer<T> : MonoBehaviour where T : IScreenController
             controller.screenID = screenID;
             screens.Add(screenID, controller);
             screenTransform.SetParent(transform, false);
+            screenTransform.gameObject.SetActive(false);
         }
     }
 

@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Currency
+  - NPC
   layers:
   - Default
   - TransparentFX
@@ -44,6 +46,9 @@ TagManager:
   - name: Currency
     uniqueID: 2082629391
     locked: 0
-  - name: Characters
+  - name: NPC
+    uniqueID: 888787857
+    locked: 0
+  - name: Player
     uniqueID: 1977611115
     locked: 0
