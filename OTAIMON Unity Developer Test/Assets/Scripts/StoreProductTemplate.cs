@@ -6,11 +6,6 @@ using UnityEngine.UI;
 
 public class StoreProductTemplate : MonoBehaviour
 {
-    string productName;
-    Sprite img;
-    int cost;
-    Currencies currency;
-
     [SerializeField]
     TMP_Text productNameText, costText;
     [SerializeField]
@@ -18,16 +13,9 @@ public class StoreProductTemplate : MonoBehaviour
     [SerializeField]
     CurrencyList currencies;
 
-    // Start is called before the first frame update
-    void Start()
+    public string productName
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        get { return productNameText.text; }
     }
 
     public void FillProductTemplate(Product p)

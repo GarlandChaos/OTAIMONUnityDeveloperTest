@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class InventoryScreenController : APanelController
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    Transform productsContainer;
+    [SerializeField]
+    GameObject productTemplate;
 
-    // Update is called once per frame
-    void Update()
+    public void OnSuccessfulPurchase(Product p)
     {
-        
+        GameObject product = Instantiate(productTemplate);
+        product.transform.SetParent(productsContainer, false);
+        product.GetComponent<InventoryProductTemplate>().FillProductTemplate(p);
     }
 }

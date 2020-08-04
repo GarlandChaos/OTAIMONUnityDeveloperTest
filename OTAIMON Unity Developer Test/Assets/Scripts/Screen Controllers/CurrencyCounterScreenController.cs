@@ -5,49 +5,27 @@ using TMPro;
 
 public class CurrencyCounterScreenController : APanelController
 {
-    int nBlue, nGreen, nGrey, nRed, nYellow;
     [SerializeField]
     TMP_Text nBlueText, nGreenText, nGreyText, nRedText, nYellowText;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        nBlue = 0;
-        nGreen = 0;
-        nGrey = 0;
-        nRed = 0;
-        nYellow = 0;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void OnCurrencyCollected(Currencies c)
+    public void OnUpdateUI(Currencies c)
     {
         switch (c)
         {
             case Currencies.Blue:
-                nBlue++;
-                nBlueText.text = " x " + nBlue.ToString();
+                nBlueText.text = " x " + InventoryManager.instance.nBlue.ToString();
                 break;
             case Currencies.Green:
-                nGreen++;
-                nGreenText.text = " x " + nGreen.ToString();
+                nGreenText.text = " x " + InventoryManager.instance.nGreen.ToString();
                 break;
             case Currencies.Grey:
-                nGrey++;
-                nGreyText.text = " x " + nGrey.ToString();
+                nGreyText.text = " x " + InventoryManager.instance.nGrey.ToString();
                 break;
             case Currencies.Red:
-                nRed++;
-                nRedText.text = " x " + nRed.ToString();
+                nRedText.text = " x " + InventoryManager.instance.nRed.ToString();
                 break;
             case Currencies.Yellow:
-                nYellow++;
-                nYellowText.text = " x " + nYellow.ToString();
+                nYellowText.text = " x " + InventoryManager.instance.nYellow.ToString();
                 break;
             default:
                 break;

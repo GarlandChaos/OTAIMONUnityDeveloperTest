@@ -20,7 +20,7 @@ public class Currency : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if(timer >= maxTime)
+        if (timer >= maxTime)
         {
             Destroy(gameObject);
         }

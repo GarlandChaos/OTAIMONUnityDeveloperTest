@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -26,9 +25,11 @@ public class GameManager : MonoBehaviour
         else
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
             SceneManager.LoadScene("UI", LoadSceneMode.Additive);
         }
-
     }
 
     // Update is called once per frame
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
     public void OnUIManagerSet()
     {
         UIManager.instance.RequestScreen("CurrencyCounterScreen", true);
+        UIManager.instance.RequestScreen("InventoryScreen", true);
     }
 
     public void OnOpenStore()

@@ -49,13 +49,4 @@ public abstract class ALayer<T> : MonoBehaviour where T : IScreenController
     {
         return screens[screenID].isVisible;
     }
-
-    public virtual void SaySize()
-    {
-        Debug.Log("layer size is: " + screens.Count);
-        foreach (KeyValuePair<string, T> kvp in screens)
-        {
-            Debug.Log(kvp.Key + " " + kvp.Value);
-        }
-    }
 }

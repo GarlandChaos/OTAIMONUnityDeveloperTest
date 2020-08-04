@@ -6,18 +6,6 @@ public class DialogLayer : ALayer<IDialogController>
 {
     Stack<IDialogController> screenStack = new Stack<IDialogController>();
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public override void ShowScreen(string screenID)
     {
         if (!screenStack.Contains(screens[screenID]))

@@ -23,7 +23,6 @@ public abstract class ADialogController : MonoBehaviour, IDialogController
     {
         if (!gameObject.activeSelf)
         {
-            Debug.Log(gameObject.name + ", " + screenID + ": " + gameObject.activeSelf);
             gameObject.SetActive(true);
             gameObject.transform.SetAsLastSibling();
             isVisible = true;

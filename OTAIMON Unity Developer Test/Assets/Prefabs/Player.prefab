@@ -162,9 +162,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -198,8 +198,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Event: {fileID: 11400000, guid: 89c9bb5867d8dd0428a3d92593381da5, type: 2}
-  sceneToLoad: 
-  thereIsASceneToLoad: 0
 --- !u!114 &7435406572649119187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,8 +238,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Event: {fileID: 11400000, guid: 7837547d0e8cf5c43b13609a71b0b1bf, type: 2}
-  sceneToLoad: 
-  thereIsASceneToLoad: 0
 --- !u!1 &5847481672838488463
 GameObject:
   m_ObjectHideFlags: 0

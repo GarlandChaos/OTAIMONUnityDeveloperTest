@@ -70,7 +70,6 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Collided with " + collision.tag);
         if (collision.tag == "NPC")
         {
             canInteractWithNPC = true;
@@ -84,7 +83,6 @@ public class Player : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("Exited colliding with " + collision.tag);
         if (collision.tag == "NPC")
         {
             canInteractWithNPC = false;

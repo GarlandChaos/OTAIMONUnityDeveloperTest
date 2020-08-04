@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 127635934788741636}
   - component: {fileID: 1860956025685923170}
-  - component: {fileID: 631403103584516778}
+  - component: {fileID: 1263226866142095113}
   m_Layer: 5
   m_Name: CurrencyCounterScreen
   m_TagString: Untagged
@@ -59,7 +59,7 @@ MonoBehaviour:
   nGreyText: {fileID: 3495218582624453326}
   nRedText: {fileID: 109130791123387}
   nYellowText: {fileID: 1459826259607500086}
---- !u!114 &631403103584516778
+--- !u!114 &1263226866142095113
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -71,12 +71,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a62131da6a428499c0b4b4101dcf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 7837547d0e8cf5c43b13609a71b0b1bf, type: 2}
+  Event: {fileID: 11400000, guid: 8237482aefb79f94b85c8cfa3dd2dd4d, type: 2}
   Response:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1860956025685923170}
-        m_MethodName: OnCurrencyCollected
+        m_MethodName: OnUpdateUI
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -252,8 +252,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -482,8 +482,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -788,8 +788,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1322,8 +1322,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1478,8 +1478,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

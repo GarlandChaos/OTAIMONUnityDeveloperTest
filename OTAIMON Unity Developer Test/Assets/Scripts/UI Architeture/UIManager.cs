@@ -58,7 +58,6 @@ public class UIManager : MonoBehaviour
         {
             var screenInstance = Instantiate(screen);
             var screenController = screenInstance.GetComponent<IScreenController>();
-            Debug.Log("Screen #:" + screen.name);
             if (screenController != null)
             {
                 IDialogController dialog = screenController as IDialogController;
@@ -79,18 +78,6 @@ public class UIManager : MonoBehaviour
         UIManagerSetEmitter.EmitEvent();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     /// <summary>
     /// Requests a screen with the given ID and open or close action
     /// </summary>
@@ -98,12 +85,8 @@ public class UIManager : MonoBehaviour
     /// <param name="open">If true open the screen, otherwise close it.</param>
     public void RequestScreen(string screenID, bool open)
     {
-        //panelLayer.SaySize();
-        //dialogLayer.SaySize();
-
         if (panelLayer.HasScreen(screenID))
         {
-            //Debug.Log("tem no panelLayer");
             if (open)
             {
                 panelLayer.ShowScreen(screenID);
@@ -116,7 +99,6 @@ public class UIManager : MonoBehaviour
         }
         else if (dialogLayer.HasScreen(screenID))
         {
-            //Debug.Log("tem no dialogLayer");
             if (open)
             {
                 dialogLayer.ShowScreen(screenID);

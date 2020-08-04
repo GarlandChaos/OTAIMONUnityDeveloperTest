@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
 public class StoreScreenController : ADialogController
 {
@@ -12,9 +13,13 @@ public class StoreScreenController : ADialogController
     [SerializeField]
     GameObject productTemplate;
     [SerializeField]
-    GameEventEmitter closeStoreEmitter;
+    GameEventEmitter closeStoreEmitter, buyEmitter, allProductsPurchasedEmitter;
     [SerializeField]
     Transform productsContainer;
+    [SerializeField]
+    TMP_Text purchaseFeedbackText;
+    [SerializeField]
+    RectTransform selector;
 
     private void Awake()
     {
@@ -33,16 +38,20 @@ public class StoreScreenController : ADialogController
             GameObject product = Instantiate(productTemplate);
             product.transform.SetParent(productsContainer, false);
             product.GetComponent<StoreProductTemplate>().FillProductTemplate(p);
+            product.GetComponent<Button>().onClick.AddListener(delegate { BuyProduct(p); });
         }
     }
 
     private void OnEnable()
     {
-        if (storeProducts != null)
+        if (storeProducts.Count != 0)
         {
-            EventSystem.current.SetSelectedGameObject(productsContainer.GetChild(0).gameObject);
-            productsContainer.GetChild(0).GetComponent<Button>().Select();
-            productsContainer.GetChild(0).GetComponent<Button>().OnSelect(null);
+            StartCoroutine(SelectFirstProduct());
+            purchaseFeedbackText.text = "";
+        }
+        else
+        {
+            purchaseFeedbackText.text = "Wow, you bought everything! Come back another day!";
         }
     }
 
@@ -52,6 +61,65 @@ public class StoreScreenController : ADialogController
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             closeStoreEmitter.EmitEvent();
+        }
+    }
+
+    public void OnSelectedButton()
+    {
+        selector.position = EventSystem.current.currentSelectedGameObject.GetComponent<RectTransform>().position;
+    }
+
+    public void BuyProduct(Product p)
+    {
+        buyEmitter.EmitEvent(p);
+    }
+
+    public void OnSuccesfulPurchase(Product p)
+    {
+        foreach(Product prod in storeProducts)
+        {
+            if(prod == p)
+            {
+                storeProducts.Remove(prod);
+                if(storeProducts.Count == 0)
+                {
+                    selector.gameObject.SetActive(false);
+                }
+                break;
+            }
+        }
+        foreach(StoreProductTemplate template in productsContainer.GetComponentsInChildren<StoreProductTemplate>())
+        {
+            if(template.productName == p._productName)
+            {
+                Destroy(template.gameObject);
+                break;
+            }
+        }
+        StartCoroutine(SelectFirstProduct());
+        purchaseFeedbackText.text = "Thanks! Enjoy your product!";
+        if(storeProducts.Count == 0)
+        {
+            allProductsPurchasedEmitter.EmitEvent();
+        }
+    }
+
+    public void OnFailedPurchase()
+    {
+        purchaseFeedbackText.text = "Sorry, you don't have enough money...";
+    }
+
+    IEnumerator SelectFirstProduct()
+    {
+        if (storeProducts != null)
+        {
+            yield return new WaitForEndOfFrame();
+            Transform firstProduct = productsContainer.GetChild(0);
+            EventSystem.current.SetSelectedGameObject(firstProduct.gameObject);
+            firstProduct.GetComponent<Button>().Select();
+            firstProduct.GetComponent<Button>().OnSelect(null);
+            yield return new WaitForEndOfFrame();
+            selector.position = firstProduct.GetComponent<RectTransform>().position;
         }
     }
 }
